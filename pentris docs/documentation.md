@@ -13,21 +13,21 @@
 	- E: Rotate block 90 degrees clockwise 
 	- Space: Quick drop. Block will immediately fall as far as it can and game will generate a new block. 
 
-#Scenes
+# Scenes
 
 ## Root Scene
 	-  
 ## Pentamino 1-18
 	- Each of the 18 pentaminos have their own scene, which I used to set up the collision and 
 
-#Media
+# Media
 
-##Art 
+## Art 
 
 	- I made the block textures myself. It's just 3 squares nested within each other. I then used a blur tool over the blocks. 
 	- Background is just a black screen which has had a grid patter superimposed on it by a website that I found online
 	- Holding cell is just a rectangle with transparent inside. 
 
-##Sounds
+## Sounds
 	
 	- Found the sounds from Kenney's Impact sound package. 
