@@ -1,16 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/block.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/pentamino.gd" type="Script" id=2]
 [ext_resource path="res://bloucks/snow white.png" type="Texture" id=3]
-
-[sub_resource type="CapsuleShape2D" id=3]
-radius = 16.0
-height = 64.0
-
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 16.0
-height = 0.01
 
 [node name="u block" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -44,13 +36,5 @@ position = Vector2( 0, -32 )
 [node name="SnowWhite" type="Sprite" parent="block_root5"]
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 32, -32 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2( 32, 32 )
-shape = SubResource( 2 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 16, -16, 16, 16, 38, 16, 48, 26, 48, 38, 38, 48, -6, 48, -16, 38, -16, -38, -6, -48, 39, -48, 48, -38, 48, -26, 38, -16 )

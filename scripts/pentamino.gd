@@ -9,8 +9,10 @@ var gravity
 var landed:bool = false
 var leftColl:bool = false
 var rightColl:bool = false
+var active:bool = true 
 var oldY = 100000
 onready var wallBump = get_node("../../wall_bump")
+onready var playfield = get_node("../../playspace")
 var stuckCount = 0
 signal spawnNew
 
@@ -42,14 +44,11 @@ func _physics_process(delta):
 			count += 1 
 			if count > 500: 
 				break
-	if(Input.is_action_just_pressed("debug_down_snap")):
-		downSnap()
-
 	if(Input.is_action_pressed("fall_faster")):
 		fSpd = fallSpeed * 2
 	else:
 		fSpd = fallSpeed
-	
+
 	self.position.x = x 
 	
 	if is_on_wall(): 
@@ -71,21 +70,12 @@ func _physics_process(delta):
 	oldY = round(self.position.y)	
 	move_and_slide(gravity, Vector2.UP, false, 20, deg2rad(30))
 	y = round(self.position.y)
-	var collision = false
-	while (collision): 
-		var name = collision.collider.name
-		if name == "floor": 
-			lock()
-		if(name.find("block") || name == "block"):
-				print(rad2deg(collision.get_angle() - self.rotation))
-		collision = move_and_collide(Vector2.ZERO)
+	
 	#if Y has moved up somehow, snap it back down. 
-	if oldY > y: 
-		downSnap()
 	#remove control when block hits bottom. 
 	if is_on_floor():
 		lock()
-	elif round(oldY) == round(y): 
+	elif round(oldY) >= round(y): 
 		#print("Not falling, not on floor")
 		downSnap()
 		stuckCount += 1
@@ -93,8 +83,7 @@ func _physics_process(delta):
 			lock()
 	else:
 		stuckCount = 0
-	if y < 0:
-		endGame()
+
 func speed_up(): 
 	fallSpeed += 5
 
@@ -135,13 +124,24 @@ func lock():
 	self.position.x = round(self.position.x)
 	if(fmod(self.position.x, 32)):
 		print("Abnormal x posiion, x = " + str(self.position.x))
+		hSnap()
 	if (self.position.y > 10):
 		find_parent("spawn").spawn() # spawn new piece 
 	#printStatus()
+	self.remove_child($CollisionPolygon2D)
+	while self.get_child_count() > 0: 
+		var chile = self.get_child(self.get_child_count() - 1) 
+		var newX = chile.global_position.x
+		var newY = chile.global_position.y 
+		chile.move()
+		self.remove_child(chile)
+		playfield.add_child(chile)
+		chile.global_position.x = newX 
+		chile.global_position.y = newY 
 
+	playfield.printStatus()
 	self.set_physics_process(false)
-func endGame():
-	self.set_physics_process(false)
+
 func printStatus():
 	print("x = "  + str(self.position.x))
 	print("y = " + str(self.position.y))

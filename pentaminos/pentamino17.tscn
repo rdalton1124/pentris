@@ -1,16 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/pentamino.gd" type="Script" id=1]
 [ext_resource path="res://scenes/block.tscn" type="PackedScene" id=2]
 [ext_resource path="res://bloucks/medium green.png" type="Texture" id=3]
-
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 16.0
-height = 64.1
-
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 16.0
-height = 32.0
 
 [node name="short z block" type="KinematicBody2D"]
 position = Vector2( 0, -1 )
@@ -45,10 +37,5 @@ position = Vector2( 0, 32 )
 [node name="Red" type="Sprite" parent="block_root5"]
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 32 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 32, -16 )
-shape = SubResource( 2 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 16, 16, 38, 16, 48, 6, 48, -38, 38, -48, 26, -48, 16, -38, 16, -16, -6, -16, -16, -6, -16, 72, -6, 80, 6, 80, 16, 72 )
