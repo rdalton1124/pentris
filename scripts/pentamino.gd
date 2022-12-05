@@ -139,7 +139,7 @@ func lock():
 		chile.global_position.x = newX 
 		chile.global_position.y = newY 
 
-	playfield.printStatus()
+	playfield.checkLines()
 	self.set_physics_process(false)
 
 func printStatus():
