@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/game_script.gd" type="Script" id=3]
+[ext_resource path="res://scripts/spawner.gd" type="Script" id=4]
+[ext_resource path="res://backgrounds/black.png" type="Texture" id=5]
+[ext_resource path="res://scenes/holding.png" type="Texture" id=6]
+[ext_resource path="res://scenes/text.png" type="Texture" id=7]
+[ext_resource path="res://audio/impact1.ogg" type="AudioStream" id=8]
+
+[node name="root" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="boundaries" type="Node" parent="."]
+
+[node name="floor" parent="boundaries" instance=ExtResource( 1 )]
+position = Vector2( 504, 576 )
+scale = Vector2( 1.45, 1 )
+
+[node name="wall_right" parent="boundaries" instance=ExtResource( 2 )]
+position = Vector2( 722, 352 )
+scale = Vector2( 1, 5 )
+
+[node name="wall_left" parent="boundaries" instance=ExtResource( 2 )]
+position = Vector2( 273, 352 )
+scale = Vector2( 0.9, 5 )
+
+[node name="spawn" type="Node2D" parent="."]
+position = Vector2( 497, 28 )
+script = ExtResource( 4 )
+
+[node name="pool" type="Node" parent="."]
+
+[node name="pent1" type="Node" parent="pool"]
+
+[node name="pent2" type="Node" parent="pool"]
+
+[node name="pent3" type="Node" parent="pool"]
+
+[node name="pent4" type="Node" parent="pool"]
+
+[node name="pent5" type="Node" parent="pool"]
+
+[node name="pent6" type="Node" parent="pool"]
+
+[node name="pent7" type="Node" parent="pool"]
+
+[node name="pent8" type="Node" parent="pool"]
+
+[node name="pent9" type="Node" parent="pool"]
+
+[node name="pent10" type="Node" parent="pool"]
+
+[node name="pent11" type="Node" parent="pool"]
+
+[node name="pent12" type="Node" parent="pool"]
+
+[node name="pent13" type="Node" parent="pool"]
+
+[node name="pent14" type="Node" parent="pool"]
+
+[node name="pent15" type="Node" parent="pool"]
+
+[node name="pent16" type="Node" parent="pool"]
+
+[node name="pent17" type="Node" parent="pool"]
+
+[node name="pent18" type="Node" parent="pool"]
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="Holding" type="Sprite" parent="."]
+position = Vector2( 129, 110 )
+texture = ExtResource( 6 )
+
+[node name="Text" type="Sprite" parent="."]
+position = Vector2( 162, 204 )
+texture = ExtResource( 7 )
+
+[node name="playspace" type="Node2D" parent="."]
+
+[node name="wall_bump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="Node2D" type="Node2D" parent="."]
