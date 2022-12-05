@@ -1,4 +1,4 @@
-#Game Rules
+# Game Rules
 
 	- Pentris is a variation of Tetris. Instead of having tetriminoes comprised of 4 orthogonal squares, it has pentaminoes comprised of 5 squares.
 	
