@@ -1,12 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/wall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/game_script.gd" type="Script" id=3]
 [ext_resource path="res://scripts/spawner.gd" type="Script" id=4]
 [ext_resource path="res://backgrounds/black.png" type="Texture" id=5]
-[ext_resource path="res://scenes/holding.png" type="Texture" id=6]
-[ext_resource path="res://scenes/text.png" type="Texture" id=7]
 [ext_resource path="res://audio/impact1.ogg" type="AudioStream" id=8]
 [ext_resource path="res://scripts/playspace.gd" type="Script" id=9]
 [ext_resource path="res://audio/quick drop.ogg" type="AudioStream" id=10]
@@ -25,11 +23,11 @@ scale = Vector2( 1.45, 1 )
 
 [node name="wall_right" parent="boundaries" instance=ExtResource( 2 )]
 position = Vector2( 722, 352 )
-scale = Vector2( 1, 5 )
+scale = Vector2( 1, 6 )
 
 [node name="wall_left" parent="boundaries" instance=ExtResource( 2 )]
 position = Vector2( 273, 352 )
-scale = Vector2( 0.9, 5 )
+scale = Vector2( 0.9, 6 )
 
 [node name="spawn" type="Node2D" parent="."]
 position = Vector2( 497, 28 )
@@ -78,26 +76,25 @@ position = Vector2( 512, 300 )
 z_index = -1
 texture = ExtResource( 5 )
 
-[node name="Holding" type="Sprite" parent="."]
-position = Vector2( 129, 110 )
-texture = ExtResource( 6 )
-
-[node name="Text" type="Sprite" parent="."]
-position = Vector2( 162, 204 )
-texture = ExtResource( 7 )
-
 [node name="playspace" type="Node2D" parent="."]
 script = ExtResource( 9 )
 
-[node name="wall_bump" type="AudioStreamPlayer" parent="."]
+[node name="audio" type="Node2D" parent="."]
+
+[node name="wall_bump" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource( 8 )
 
-[node name="line" type="AudioStreamPlayer" parent="."]
+[node name="line" type="AudioStreamPlayer" parent="audio"]
 stream = SubResource( 1 )
 
-[node name="quickDrop" type="AudioStreamPlayer" parent="."]
+[node name="quickDrop" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource( 10 )
 
-[node name="playfield" type="Node2D" parent="."]
+[node name="backbackground" type="Sprite" parent="."]
+z_index = -2
 
-[node name="Node2D2" type="Node2D" parent="."]
+[node name="ColorRect" type="ColorRect" parent="backbackground"]
+margin_top = -3.0
+margin_right = 1036.0
+margin_bottom = 599.0
+color = Color( 0, 0, 0, 1 )

@@ -1,7 +1,7 @@
 extends Node2D
 
 
-onready var lineComplete = get_node("../line")
+onready var lineComplete = get_node("../audio/line")
 var array = [] 
 var linesCleared = 0
 func _ready():
@@ -45,12 +45,13 @@ func deleteLines(arry):
 	for i in toDel:
 		get_child(i).queue_free()
 	
-	
+	var idx = arry.size() - 1
 	if s:
-		for i in arry:
+		while idx >= 0: 
 			for j in get_child_count():
-				if get_child(j).position.y <= in2h(i):
+				if get_child(j).position.y <= in2h(arry[idx]):
 					get_child(j).fall()
+			idx -= 1
 
 func h2in(x):
 	return ((x - 28) / 32) - 1

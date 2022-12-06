@@ -13,8 +13,8 @@ var rightColl:bool = false
 
 var oldY = 100000
 
-onready var qd = get_node("../../quickDrop")
-onready var wallBump = get_node("../../wall_bump")
+onready var qd = get_node("../../audio/quickDrop")
+onready var wallBump = get_node("../../audio/wall_bump")
 onready var playfield = get_node("../../playspace")
 
 var stuckCount = 0
