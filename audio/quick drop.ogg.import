@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/quick drop.ogg-38325a346ae8d70d91f745972b9e8beb.oggstr"
+
+[deps]
+
+source_file="res://audio/quick drop.ogg"
+dest_files=[ "res://.import/quick drop.ogg-38325a346ae8d70d91f745972b9e8beb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,7 +1,7 @@
 extends Node2D
 
 
-
+onready var lineComplete = get_node("../line")
 var array = [] 
 var linesCleared = 0
 func _ready():
@@ -24,6 +24,8 @@ func checkLines():
 		if(array[index] == 13): 
 			print("line made")
 			lineArray.append(index)
+	if lineArray.size(): 
+		lineComplete.play()
 	deleteLines(lineArray)
 	linesCleared += lineArray.size()
 func deleteLines(arry): 

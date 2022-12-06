@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/line complete.ogg-babc24597d5246761f55b7903a0cff49.oggstr"
+
+[deps]
+
+source_file="res://audio/line complete.ogg"
+dest_files=[ "res://.import/line complete.ogg-babc24597d5246761f55b7903a0cff49.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

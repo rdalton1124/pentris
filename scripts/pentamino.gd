@@ -3,18 +3,21 @@ extends KinematicBody2D
 var angle
 var x 
 var y
+
 var fallSpeed
 var fSpd 
 var gravity
-var landed:bool = false
+
 var leftColl:bool = false
 var rightColl:bool = false
-var active:bool = true 
+
 var oldY = 100000
+
+onready var qd = get_node("../../quickDrop")
 onready var wallBump = get_node("../../wall_bump")
 onready var playfield = get_node("../../playspace")
+
 var stuckCount = 0
-signal spawnNew
 
 func _ready():
 	angle = rotation_degrees
@@ -23,34 +26,9 @@ func _ready():
 	gravity = Vector2.ZERO
 	fallSpeed = 60
 
-func _physics_process(delta):
-	x = self.position.x
-	if(Input.is_action_just_pressed("cc_rotate")):
-		angle += 90
-	if(Input.is_action_just_pressed("ccw_rotate")):
-		angle -= 90
-	if(Input.is_action_just_pressed("move_left") && !leftColl):
-		x -= 32
-		rightColl = false
-	if(Input.is_action_just_pressed("move_right") && !rightColl):
-		x += 32
-		leftColl = false
-	if(Input.is_action_just_pressed("debug_print")):
-		printStatus()
-	if(Input.is_action_just_pressed("quick_drop")):
-		var count = 0
-		while !is_on_floor():
-			move_and_slide(gravity, Vector2.UP)
-			count += 1 
-			if count > 500: 
-				break
-	if(Input.is_action_pressed("fall_faster")):
-		fSpd = fallSpeed * 2
-	else:
-		fSpd = fallSpeed
 
-	self.position.x = x 
-	
+func _physics_process(delta):
+	processInput()
 	if is_on_wall(): 
 		for i in get_slide_count(): 
 			var name = get_slide_collision(i).collider.name
@@ -76,7 +54,6 @@ func _physics_process(delta):
 	if is_on_floor():
 		lock()
 	elif round(oldY) >= round(y): 
-		#print("Not falling, not on floor")
 		downSnap()
 		stuckCount += 1
 		if stuckCount >= 10:
@@ -141,6 +118,35 @@ func lock():
 
 	playfield.checkLines()
 	self.set_physics_process(false)
+
+func processInput():
+	x = self.position.x
+	if(Input.is_action_just_pressed("cc_rotate")):
+		angle += 90
+	if(Input.is_action_just_pressed("ccw_rotate")):
+		angle -= 90
+	if(Input.is_action_just_pressed("move_left") && !leftColl):
+		x -= 32
+		rightColl = false
+	if(Input.is_action_just_pressed("move_right") && !rightColl):
+		x += 32
+		leftColl = false
+	if(Input.is_action_just_pressed("debug_print")):
+		printStatus()
+	if(Input.is_action_just_pressed("quick_drop")):
+		var count = 0
+		while !is_on_floor():
+			move_and_slide(gravity, Vector2.UP)
+			count += 1 
+			if count > 750: 
+				break
+		qd.play()
+	if(Input.is_action_pressed("fall_faster")):
+		fSpd = fallSpeed * 2
+	else:
+		fSpd = fallSpeed
+
+	self.position.x = x 
 
 func printStatus():
 	print("x = "  + str(self.position.x))

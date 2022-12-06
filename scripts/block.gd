@@ -13,11 +13,6 @@ func _physics_process(delta):
 	if !landed: 
 		self.position.x = xOffset
 		self.position.y = yOffset
-	else: 
-		if !is_on_floor(): 
-			move_and_slide(vel, Vector2.UP)
-		else:
-			self.set_physics_process(false)
 func move() :
 	self.set_physics_process(false)
 	$CollisionShape2D.set_disabled(false)
