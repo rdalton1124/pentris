@@ -42,14 +42,22 @@
 	- Controls the pentaminos.	
 	- Used by all types of pentaminoes. 
 ### variables	
-
+	- x, y: Temporary variables representing position of pentamino
+	- angle: Current angle. Since Godot keeps angles as radians by default, I think it's beneficial to have a
+	separate, integer value which does not get distorted over time by float conversions. 
+	- fallSpeed: Current fallSpeed. Set to 60 by default. 
+	- fSpd: A temporary variable which is 2 * fallSpeed if S is being held or just fallSpeed otherwise. Ultimately not necessary
+	- gravity: The main velocity vector. x is always 0, y is set to the current fall speed. 
+	- leftColl, rightColl: booleans which tell whether the pentamino is hitting the right or left wall 
+	- qd, wallBump: sounds 
+	- playfield: points to the play space node. 
 ### _ready function
 	- Initializes variables. 
 	- Sets fallSppeed to variables. 
 ### processInput function
- 	-	
+ 	- Reacts to input. 	
 ### _physics_process function
-
+	- 
 ### printStatus function
 	- Used for debugging. 
 	- Prints out location, rotation and collisions. 
@@ -58,10 +66,17 @@
 	- If pentamino has somehow fallen out of the grid, it realigns it. 
 	- Removes all children from pentamino. Destroys collision and forfeits blocks to playfield
 	- If pentamino is not hitting ceiliing, spawn a new pentamino. If it is, just don't, causing game to end. 
-	- 
+	- Call playfield's check lines function 
 
 ## Block 
-
+### Variables 
+	- xOffset, yOffset: offset of block from it's parent node
+	- vel: a velocity vector that I ended up not needing
+	- landed: a boolean telling whether parent pentamino has landed. 
+###Functions
+	- physics process: Keeps block's offset aligned with parent pentamino. Disabled when block lands
+	- move: disables physics process. Called when a pentamino lands. 
+	- fall: moves block down 32 pixels. Called when line below it is cleared  
 ## Spawner 
 	- Spawns a new pentamino. 
 ### Functions
@@ -69,12 +84,21 @@
 	- spawn: chooses a random number between 1 and 18, and instantiates the corresponding pentamino. 
 
 ## Playfield 
-
+### variables 
+	- array 
+	- linesCleared: an integer showing the number of lines which have been cleared 
+	- lineComplete: a sound 
+### functions 
+	- rstarry: reset array. Sets every value in array to 0 
+	- checkLines:
+	- deleteLines:
+	- h2in and in2h: The index of the array(in) corresponds to a certain y position (h).
+	- printStatus: debug function, prints 
 ## game_script
 
 	- Spawns a pentamino at the beginning of the game 
 	- Is in charge of restarting the game when player presses R. 
-
+	
 
 # Media
 
@@ -91,7 +115,7 @@
 ## Steps 
 	- The first thing I did was create the block sprites. 
 	- After creating the images, I then created the individual pentamino scenes. I initially used a polygon2D which directly aligned w/ the way the sprites looked. 
-	-
+	- The first pr
 
 ## Problems during creation
 
@@ -110,6 +134,9 @@
 	- Pentamino script doesn't actually delete itself in lock().  It just sets physics process to false. It's a single line change, but I've already submitted the assignment. 
 	- Quick drop doesn't work quite right. Since it sometimes gets caught in an endless loop, I set the quick drop function to just stop after 500 iterations. It's a collision problem of some kind, because the loop is set to run until you hit the floor. 
 	- I wish to fix the movement. I directly modify the position values a lot, which is something I wish to change. 
+	- I would change the way that the game detects a loss. It just checks a pentamino's Y position. This is inconsistent
+	because the position is based on the "center" of the 5 blocks, which varies based on the specific block + rotation. 
+	I would instead change it to detect a collision with an invisible ceiling. 
 ### Spawning
 	- I wanted to try to do some sort of object pooling, but I didn't get to that point.
 	- The spawner seems to behave strangely at times (spawning the same piece 3 times in a row, spawning a bunch of the same piece, et cetera). I'm not sure why. randi seems to have uniform distribution. I want to make it less wonky. 
