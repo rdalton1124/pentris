@@ -55,12 +55,21 @@
 	- Initializes variables. 
 	- Sets fallSppeed to variables. 
 ### processInput function
- 	- Reacts to input. 	
+ 	- Reacts to input.
+	- Called at the beginning of physics process. 
 ### _physics_process function
-	- 
+	- Calls process input, checks for collisions with walls, calls move_and_slide, and then check for weird collisions
 ### printStatus function
 	- Used for debugging. 
 	- Prints out location, rotation and collisions. 
+### snap functions 	
+	- The snap functions exist to keep the pieces in line with the grid. 
+	- If x and y are not multiples of 32, this will modify them to be one (blocks are 32 x 32).  
+	- Usually called right before locking pieces or if the game notices something weird
+	- hSnap: horizontal snap. If x is not a multiple of 32, round it to the nearest one 
+	- vSnap: vertical snap. If y is not a multiple of 32, round it to the nearest one 
+	- snap: calls hSnap and vSnap 
+	- downSnap: rounds y to the next higher multiple of 32. 
 ### lock function 
 	- Called after block lands
 	- If pentamino has somehow fallen out of the grid, it realigns it. 
@@ -90,10 +99,19 @@
 	- lineComplete: a sound 
 ### functions 
 	- rstarry: reset array. Sets every value in array to 0 
-	- checkLines:
-	- deleteLines:
 	- h2in and in2h: The index of the array(in) corresponds to a certain y position (h).
-	- printStatus: debug function, prints 
+	- printStatus: debug function, prints number of children 
+### checkLines function 
+	- Checks to see if any lines have been made
+	- Works by checking every single block and counting how many blocks there are at each height.
+	- If there are 13 or more blocks (playfield is 13 blocks wide), that line is marked for deletion
+
+### deleteLines function
+	- Deletes lines after they are made
+	- Receives an array from the checkLines function 
+	- Goes through every single block. If the block is at one of the heights marked for deletion, delete it
+	- Goes through every single remaining block. If it higher than the blocks marked for deletion, calls blocks
+	fall function
 ## game_script
 
 	- Spawns a pentamino at the beginning of the game 
@@ -123,7 +141,13 @@
 	- The first problem I encountered was that Godot (and most game engines) is meant for continous movement, but Pentris specifically requires grid-based movements (ie, moving left or right specifically moves you 32 pixels left or right). I directly set the self.position.x += 32, but this is far from an ideal solution. 
 	
 ### Collision issues
-	- 
+	- At first I tried to use the collision of the block nodes, but couldn't get it working
+	- Then I tried to use a collision polygon2d which matched up cleanly with the pentamino. This didn't work because I accidentally set it to segment collision instead of solid collison 
+	- After this, I set the collision to be 2-3 collisonShape2D rectangles. This worked okay, except for the fact 
+	that the corners of a falling piece would collide with the corners of a landing piece. 
+	- I tried a few different solution, such as increasing the fallspeed when colliding w/ a block, et cetera.
+	- I eventually ended up setting the collision as collison polygon 2Ds which almost match the blocks, but without the corners. 
+	- Had trouble w/ landing 
 
 ## Things I would change
 ### Playfield script
@@ -150,4 +174,14 @@
 	- Scoring/high scores. 
 	- Speeding up after 5 pieces
 	- Special sound for a pentris (clearing 5 lines at once). 
+	- My fans wish for there to be T-spin functionality. 
 # Thoughts on Godot 
+## General thoughts 
+	- I choose Godot specifically because I wanted to learn a new technology
+	- It was easy enough to learn. It would've been easier for me if I paid more attention to the 
+	built-in docs. For example, I accidentally set my collison to be segments instead of solids because 
+	I thought that option referred to the shape of the collision rather than the functionality of the collision 
+## Advantages 
+	- 
+## Disadvantages 
+	- 
