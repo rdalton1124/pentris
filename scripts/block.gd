@@ -1,21 +1,22 @@
-extends KinematicBody2D
-
+extends CharacterBody2D
+''' 
+	One of the individual blocks which makes up the pentamino 
+	This script serves primarily to take control of the 
+'''
 var xOffset 
 var yOffset 
-var vel = Vector2.ZERO 
 var landed = false
 func _ready(): 
-	vel.y = 32
 	xOffset = self.position.x 
 	yOffset = self.position.y 
-	$CollisionShape2D.set_disabled(true)
+	$CollisionPolygon2D.set_disabled(true)
 func _physics_process(delta):
 	if !landed: 
 		self.position.x = xOffset
 		self.position.y = yOffset
 func move() :
 	self.set_physics_process(false)
-	$CollisionShape2D.set_disabled(false)
+	$CollisionPolygon2D.set_disabled(false)
 	landed = true 
 func fall(): 
 	self.position.y += 32

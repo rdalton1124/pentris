@@ -1,21 +1,19 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 var angle
 var x 
 var y
 
 var fallSpeed
-var fSpd 
-var gravity
 
 var leftColl:bool = false
 var rightColl:bool = false
 
 var oldY = 100000
 
-onready var qd = get_node("../../audio/quickDrop")
-onready var wallBump = get_node("../../audio/wall_bump")
-onready var playfield = get_node("../../playspace")
+@onready var qd = get_node("../../audio/quickDrop")
+@onready var wallBump = get_node("../../audio/wall_bump")
+@onready var playfield = get_node("../../playspace")
 
 var stuckCount = 0
 
@@ -23,15 +21,14 @@ func _ready():
 	angle = rotation_degrees
 	x = self.position.x
 	y = self.position.y
-	gravity = Vector2.ZERO
+	velocity = Vector2.ZERO
 	fallSpeed = 60
-
 
 func _physics_process(delta):
 	processInput()
 	if is_on_wall(): 
-		for i in get_slide_count(): 
-			var name = get_slide_collision(i).collider.name
+		for i in range(get_slide_collision_count() - 1):
+			var name = get_slide_collision(i).get_collider().name
 			if(name == "wall_left" && !leftColl):
 				wallBump.play()
 				hSnap()
@@ -43,10 +40,13 @@ func _physics_process(delta):
 
 	self.rotation_degrees = angle
 	
-	gravity.y = fSpd
+	oldY = round(self.position.y)
+	set_up_direction(Vector2.UP)
+	set_floor_stop_on_slope_enabled(false)
+	set_max_slides(20)
+	set_floor_max_angle(deg_to_rad(30))
+	move_and_slide()
 	
-	oldY = round(self.position.y)	
-	move_and_slide(gravity, Vector2.UP, false, 20, deg2rad(30))
 	y = round(self.position.y)
 	
 	#if Y has moved up somehow, snap it back down. 
@@ -63,9 +63,6 @@ func _physics_process(delta):
 
 func speed_up(): 
 	fallSpeed += 5
-
-func end_game(): 
-	self.set_physics_process(false)
 
 #enforces the grid. If piece becomes misaligned, aligns it to an appropriate place.
 func snap(): 
@@ -117,36 +114,27 @@ func lock():
 		chile.global_position.y = newY 
 
 	playfield.checkLines()
-	self.set_physics_process(false)
+	self.queue_free()
 
 func processInput():
-	x = self.position.x
+	velocity.x = 0
 	if(Input.is_action_just_pressed("cc_rotate")):
 		angle += 90
 	if(Input.is_action_just_pressed("ccw_rotate")):
 		angle -= 90
 	if(Input.is_action_just_pressed("move_left") && !leftColl):
-		x -= 32
+		velocity.x = -32 * 60
 		rightColl = false
 	if(Input.is_action_just_pressed("move_right") && !rightColl):
-		x += 32
+		velocity.x = 32 * 60
 		leftColl = false
-	if(Input.is_action_just_pressed("debug_print")):
-		printStatus()
 	if(Input.is_action_just_pressed("quick_drop")):
-		var count = 0
-		while !is_on_floor():
-			move_and_slide(gravity, Vector2.UP)
-			count += 1 
-			if count > 750: 
-				break
+		velocity.y = fallSpeed * 1000
 		qd.play()
-	if(Input.is_action_pressed("fall_faster")):
-		fSpd = fallSpeed * 2
+	elif(Input.is_action_pressed("fall_faster")):
+		velocity.y = fallSpeed * 2
 	else:
-		fSpd = fallSpeed
-
-	self.position.x = x 
+		velocity.y = fallSpeed
 
 func printStatus():
 	print("x = "  + str(self.position.x))
@@ -154,7 +142,7 @@ func printStatus():
 	print("rotation ~" + str(self.rotation_degrees))
 	print("hitting a floor?" + str(is_on_floor()))
 	print("hitting a wall? " + str(is_on_wall()))
-	for i in get_slide_count(): 
+	for i in get_slide_collision_count(): 
 		print("collision: " + get_slide_collision(i).collider.name)
 		print("collision angle " + str(get_slide_collision(i).get_angle()))
 	print("")
