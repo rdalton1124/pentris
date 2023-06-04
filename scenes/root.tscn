@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0i7e2sgnmr1b"]
+[gd_scene load_steps=10 format=3 uid="uid://b0i7e2sgnmr1b"]
 
 [ext_resource type="PackedScene" uid="uid://w6qeyiuux21i" path="res://scenes/floor.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://6nx456pb5b6l" path="res://scenes/wall.tscn" id="2"]
 [ext_resource type="Script" path="res://scripts/game_script.gd" id="3"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://dexr7bg3cjgah" path="res://backgrounds/black.png" id="5_fiwpg"]
 [ext_resource type="AudioStream" uid="uid://du8epgbnqyxbk" path="res://audio/impact1.ogg" id="8"]
 [ext_resource type="Script" path="res://scripts/playspace.gd" id="9"]
 [ext_resource type="AudioStream" uid="uid://b468fcd7ie6bx" path="res://audio/quick drop.ogg" id="10"]
@@ -71,7 +72,17 @@ script = ExtResource("4")
 
 [node name="background" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(512, 300)
+position = Vector2(512, 240)
+texture = ExtResource("5_fiwpg")
+
+[node name="Sprite2D" type="Sprite2D" parent="background"]
+position = Vector2(0, 480)
+texture = ExtResource("5_fiwpg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="background"]
+position = Vector2(740, 32)
+rotation = 1.5708
+texture = ExtResource("5_fiwpg")
 
 [node name="playspace" type="Node2D" parent="."]
 script = ExtResource("9")
@@ -86,12 +97,3 @@ stream = SubResource("1")
 
 [node name="quickDrop" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("10")
-
-[node name="backbackground" type="Sprite2D" parent="."]
-z_index = -2
-
-[node name="ColorRect" type="ColorRect" parent="backbackground"]
-offset_top = -3.0
-offset_right = 1036.0
-offset_bottom = 599.0
-color = Color(0, 0, 0, 1)
