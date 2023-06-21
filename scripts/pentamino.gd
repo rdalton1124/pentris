@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 var angle
 var x 
@@ -13,9 +13,9 @@ var rightColl:bool = false
 
 var oldY = 100000
 
-onready var qd = get_node("../../audio/quickDrop")
-onready var wallBump = get_node("../../audio/wall_bump")
-onready var playfield = get_node("../../playspace")
+@onready var qd = get_node("../../audio/quickDrop")
+@onready var wallBump = get_node("../../audio/wall_bump")
+@onready var playfield = get_node("../../playspace")
 
 var stuckCount = 0
 
@@ -30,7 +30,7 @@ func _ready():
 func _physics_process(delta):
 	processInput()
 	if is_on_wall(): 
-		for i in get_slide_count(): 
+		for i in get_slide_collision_count(): 
 			var name = get_slide_collision(i).collider.name
 			if(name == "wall_left" && !leftColl):
 				wallBump.play()
@@ -46,7 +46,12 @@ func _physics_process(delta):
 	gravity.y = fSpd
 	
 	oldY = round(self.position.y)	
-	move_and_slide(gravity, Vector2.UP, false, 20, deg2rad(30))
+	set_velocity(gravity)
+	set_up_direction(Vector2.UP)
+	set_floor_stop_on_slope_enabled(false)
+	set_max_slides(20)
+	set_floor_max_angle(deg_to_rad(30))
+	move_and_slide()
 	y = round(self.position.y)
 	
 	#if Y has moved up somehow, snap it back down. 
@@ -130,18 +135,11 @@ func processInput():
 		rightColl = false
 	if(Input.is_action_just_pressed("move_right") && !rightColl):
 		x += 32
-		leftColl = false
-	if(Input.is_action_just_pressed("debug_print")):
-		printStatus()
+		leftColl = false 
 	if(Input.is_action_just_pressed("quick_drop")):
-		var count = 0
-		while !is_on_floor():
-			move_and_slide(gravity, Vector2.UP)
-			count += 1 
-			if count > 750: 
-				break
+		fSpd = fallSpeed * 1000
 		qd.play()
-	if(Input.is_action_pressed("fall_faster")):
+	elif(Input.is_action_pressed("fall_faster")):
 		fSpd = fallSpeed * 2
 	else:
 		fSpd = fallSpeed
@@ -154,7 +152,7 @@ func printStatus():
 	print("rotation ~" + str(self.rotation_degrees))
 	print("hitting a floor?" + str(is_on_floor()))
 	print("hitting a wall? " + str(is_on_wall()))
-	for i in get_slide_count(): 
+	for i in get_slide_collision_count(): 
 		print("collision: " + get_slide_collision(i).collider.name)
 		print("collision angle " + str(get_slide_collision(i).get_angle()))
 	print("")

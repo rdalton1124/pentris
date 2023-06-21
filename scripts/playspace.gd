@@ -1,7 +1,7 @@
 extends Node2D
 
 
-onready var lineComplete = get_node("../audio/line")
+@onready var lineComplete = get_node("../audio/line")
 var array = [] 
 var linesCleared = 0
 func _ready():

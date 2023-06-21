@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/line complete.ogg-babc24597d5246761f55b7903a0cff49.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d3clxrbag1bfa"
+path="res://.godot/imported/line complete.ogg-babc24597d5246761f55b7903a0cff49.oggvorbisstr"
 
 [deps]
 
 source_file="res://audio/line complete.ogg"
-dest_files=[ "res://.import/line complete.ogg-babc24597d5246761f55b7903a0cff49.oggstr" ]
+dest_files=["res://.godot/imported/line complete.ogg-babc24597d5246761f55b7903a0cff49.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

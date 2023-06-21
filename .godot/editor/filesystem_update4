@@ -1,0 +1,5 @@
+res://default_env.tres
+res://scenes/root.tscn
+res://scenes/floor.tscn
+res://scenes/wall.tscn
+res://scripts/pentamino.gd
