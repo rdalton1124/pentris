@@ -1,4 +1,7 @@
 res://default_env.tres
 res://scenes/root.tscn
+res://scenes/music.gd
+res://scenes/sound.gd
+res://scenes/AudioController.gd
 res://scripts/playspace.gd
-res://scenes/score.gd
+res://scripts/pentamino.gd

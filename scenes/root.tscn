@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0i7e2sgnmr1b"]
+[gd_scene load_steps=20 format=3 uid="uid://b0i7e2sgnmr1b"]
 
 [ext_resource type="PackedScene" uid="uid://w6qeyiuux21i" path="res://scenes/floor.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://6nx456pb5b6l" path="res://scenes/wall.tscn" id="2"]
@@ -10,6 +10,13 @@
 [ext_resource type="FontFile" uid="uid://bljp3vplihb2s" path="res://zekton rg.ttf" id="9_vl4v1"]
 [ext_resource type="Script" path="res://scenes/score.gd" id="9_xwpkg"]
 [ext_resource type="AudioStream" uid="uid://b468fcd7ie6bx" path="res://audio/quick drop.ogg" id="10"]
+[ext_resource type="Script" path="res://scenes/music.gd" id="11_uffoo"]
+[ext_resource type="Texture2D" uid="uid://d4k6dr7ky8arw" path="res://Icons/musicOff.png" id="12_ow5sp"]
+[ext_resource type="Texture2D" uid="uid://irsl8psaxf8" path="res://Icons/musicOn.png" id="13_lqe5r"]
+[ext_resource type="Texture2D" uid="uid://dc0i3kqwtlfe6" path="res://Icons/audioOff.png" id="14_nmxgp"]
+[ext_resource type="Script" path="res://scenes/sound.gd" id="14_rfbo2"]
+[ext_resource type="Texture2D" uid="uid://be86vukai4hfk" path="res://Icons/audioOn.png" id="15_jnyp5"]
+[ext_resource type="Script" path="res://scenes/AudioController.gd" id="17_xhbwo"]
 
 [sub_resource type="AudioStreamOggVorbis" id="1"]
 
@@ -121,3 +128,38 @@ editable = false
 expand_to_text_length = true
 language = "en"
 script = ExtResource("9_xwpkg")
+
+[node name="music" type="Button" parent="."]
+offset_left = 828.0
+offset_top = 129.0
+offset_right = 865.0
+offset_bottom = 168.0
+toggle_mode = true
+script = ExtResource("11_uffoo")
+
+[node name="musicOff" type="Sprite2D" parent="music"]
+position = Vector2(18, 18)
+texture = ExtResource("12_ow5sp")
+
+[node name="musicOn" type="Sprite2D" parent="music"]
+position = Vector2(18, 18)
+texture = ExtResource("13_lqe5r")
+
+[node name="sound" type="Button" parent="."]
+offset_left = 932.0
+offset_top = 136.0
+offset_right = 968.0
+offset_bottom = 172.0
+action_mode = 0
+script = ExtResource("14_rfbo2")
+
+[node name="audioOff" type="Sprite2D" parent="sound"]
+position = Vector2(18, 18)
+texture = ExtResource("14_nmxgp")
+
+[node name="audioOn" type="Sprite2D" parent="sound"]
+position = Vector2(18, 18)
+texture = ExtResource("15_jnyp5")
+
+[node name="AudioController" type="Node2D" parent="."]
+script = ExtResource("17_xhbwo")

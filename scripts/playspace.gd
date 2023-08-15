@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var  score = get_node("../score")
-@onready var lineComplete = get_node("../audio/line")
+@onready var ac = get_node("../AudioController")
 var array = [] 
 var linesCleared = 0
 func _ready():
@@ -24,7 +24,7 @@ func checkLines():
 			print("line made")
 			lineArray.append(index)
 	if lineArray.size(): 
-		lineComplete.play()
+		ac.line() 
 	deleteLines(lineArray)
 	linesCleared += lineArray.size()
 	score.setScore(linesCleared)

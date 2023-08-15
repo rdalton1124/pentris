@@ -11,8 +11,7 @@ var rightColl:bool = false
 
 var oldY = 100000
 
-@onready var qd = get_node("../../audio/quickDrop")
-@onready var wallBump = get_node("../../audio/wall_bump")
+@onready var ac = get_node("../../AudioController")
 @onready var playfield = get_node("../../playspace")
 
 var stuckCount = 0
@@ -30,11 +29,11 @@ func _physics_process(delta):
 		for i in range(get_slide_collision_count() - 1):
 			var name = get_slide_collision(i).get_collider().name
 			if(name == "wall_left" && !leftColl):
-				wallBump.play()
+				ac.bump()
 				hSnap()
 				leftColl = true 
 			elif(name == "wall_right" && !rightColl): 
-				wallBump.play()
+				ac.bump()
 				hSnap()
 				rightColl = true
 
@@ -130,7 +129,7 @@ func processInput():
 		leftColl = false
 	if(Input.is_action_just_pressed("quick_drop")):
 		velocity.y = fallSpeed * 1000
-		qd.play()
+		ac.qd() 
 	elif(Input.is_action_pressed("fall_faster")):
 		velocity.y = fallSpeed * 2
 	else:
