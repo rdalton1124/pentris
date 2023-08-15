@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b0i7e2sgnmr1b"]
+[gd_scene load_steps=21 format=3 uid="uid://b0i7e2sgnmr1b"]
 
 [ext_resource type="PackedScene" uid="uid://w6qeyiuux21i" path="res://scenes/floor.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://6nx456pb5b6l" path="res://scenes/wall.tscn" id="2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dexr7bg3cjgah" path="res://backgrounds/black.png" id="5_fiwpg"]
 [ext_resource type="AudioStream" uid="uid://du8epgbnqyxbk" path="res://audio/impact1.ogg" id="8"]
 [ext_resource type="Script" path="res://scripts/playspace.gd" id="9"]
+[ext_resource type="AudioStream" uid="uid://b8u0slkctbqcp" path="res://audio/Korobeiniki.ogg" id="9_q0dnj"]
 [ext_resource type="FontFile" uid="uid://bljp3vplihb2s" path="res://zekton rg.ttf" id="9_vl4v1"]
 [ext_resource type="Script" path="res://scenes/score.gd" id="9_xwpkg"]
 [ext_resource type="AudioStream" uid="uid://b468fcd7ie6bx" path="res://audio/quick drop.ogg" id="10"]
@@ -109,6 +110,9 @@ stream = SubResource("1")
 
 [node name="quickDrop" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("10")
+
+[node name="musicAudio" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("9_q0dnj")
 
 [node name="score" type="LineEdit" parent="."]
 offset_left = 797.0
