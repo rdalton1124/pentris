@@ -21,6 +21,10 @@ config/icon="res://bloucks/pnurple.png"
 config/macos_native_icon="res://bloucks/pnurple.png"
 config/windows_native_icon="res://bloucks/pnurple.png"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="pentris"

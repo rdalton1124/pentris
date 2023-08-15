@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0i7e2sgnmr1b"]
+[gd_scene load_steps=13 format=3 uid="uid://b0i7e2sgnmr1b"]
 
 [ext_resource type="PackedScene" uid="uid://w6qeyiuux21i" path="res://scenes/floor.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://6nx456pb5b6l" path="res://scenes/wall.tscn" id="2"]
@@ -7,9 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://dexr7bg3cjgah" path="res://backgrounds/black.png" id="5_fiwpg"]
 [ext_resource type="AudioStream" uid="uid://du8epgbnqyxbk" path="res://audio/impact1.ogg" id="8"]
 [ext_resource type="Script" path="res://scripts/playspace.gd" id="9"]
+[ext_resource type="FontFile" uid="uid://bljp3vplihb2s" path="res://zekton rg.ttf" id="9_vl4v1"]
+[ext_resource type="Script" path="res://scenes/score.gd" id="9_xwpkg"]
 [ext_resource type="AudioStream" uid="uid://b468fcd7ie6bx" path="res://audio/quick drop.ogg" id="10"]
 
 [sub_resource type="AudioStreamOggVorbis" id="1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4go7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="root" type="Node2D"]
 script = ExtResource("3")
@@ -97,3 +102,22 @@ stream = SubResource("1")
 
 [node name="quickDrop" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("10")
+
+[node name="score" type="LineEdit" parent="."]
+offset_left = 797.0
+offset_top = 47.0
+offset_right = 981.0
+offset_bottom = 116.0
+theme_override_colors/font_uneditable_color = Color(0, 1, 0, 0.505882)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0.890196, 0, 1)
+theme_override_constants/caret_width = 0
+theme_override_fonts/font = ExtResource("9_vl4v1")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_u4go7")
+alignment = 1
+max_length = 10
+editable = false
+expand_to_text_length = true
+language = "en"
+script = ExtResource("9_xwpkg")

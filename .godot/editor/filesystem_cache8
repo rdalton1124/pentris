@@ -1,91 +1,91 @@
 2a60927148abd1d33b818b535e306557
-::res://::1685911352
-bg.png::CompressedTexture2D::7732153870768049217::1669832833::1682565020::1::::<><>::
-default_env.tres::Environment::3974447318307321955::1683157291::0::1::::<><>::
-export_presets.cfg::TextFile::-1::1670300335::0::1::::<><>::
-mono_crash.0.0.json::JSON::-1::1670284195::0::1::::<><>::
-::res://audio/::1682564946
-impact1.ogg::AudioStreamOggVorbis::8631433361901479848::1670260057::1682564946::1::::<><>::
-line complete.ogg::AudioStreamOggVorbis::3166570940304006780::1670284189::1682564946::1::::<><>::
-quick drop.ogg::AudioStreamOggVorbis::4487905560448641941::1670284189::1682564946::1::::<><>::
-::res://backgrounds/::1682564985
-bg.png::CompressedTexture2D::2460157787812230866::1669832837::1682564985::1::::<><>::
-black.png::CompressedTexture2D::7488587511324195975::1669858554::1682564985::1::::<><>::
-holding.png::CompressedTexture2D::7282095510005944914::1669429718::1682564985::1::::<><>::
-::res://bloucks/::1682564985
-blak.png::CompressedTexture2D::4838801057481547319::1667332510::1682564985::1::::<><>::
-blu2.png::CompressedTexture2D::1499993201723939689::1669148088::1682564985::1::::<><>::
-burgundy.png::CompressedTexture2D::526201001285041085::1669148777::1682564985::1::::<><>::
-fugly brown.png::CompressedTexture2D::5190440306692401827::1669148118::1682564985::1::::<><>::
-karen white.png::CompressedTexture2D::6149434861324609149::1669148104::1682564985::1::::<><>::
-lavender.png::CompressedTexture2D::9139578262362231805::1669148269::1682564985::1::::<><>::
-lime green.png::CompressedTexture2D::3633037371286845238::1669148135::1682564985::1::::<><>::
-lite blue.png::CompressedTexture2D::9052433259606091753::1669148290::1682564985::1::::<><>::
-medium green.png::CompressedTexture2D::8919477042490033698::1669148965::1682564985::1::::<><>::
-navy.png::CompressedTexture2D::4153148728341247033::1669148767::1682564985::1::::<><>::
-oinge.png::CompressedTexture2D::5085939255727693193::1669148309::1682564985::1::::<><>::
-pink2.png::CompressedTexture2D::2550974059607750275::1669149028::1682564985::1::::<><>::
-pink.png::CompressedTexture2D::5547307676514765448::1669148321::1682564985::1::::<><>::
-plum.png::CompressedTexture2D::1221993615739488646::1669148834::1682564985::1::::<><>::
-pnurple.png::CompressedTexture2D::8382253958602630973::1669148335::1682564985::1::::<><>::
-red.png::CompressedTexture2D::2311351151073629966::1669148349::1682564985::1::::<><>::
-snow white.png::CompressedTexture2D::4456188512972515328::1669148891::1682564985::1::::<><>::
-yellow.png::CompressedTexture2D::6338422619746780811::1669148365::1682564985::1::::<><>::
-::res://builds/::1670300346
-::res://builds/Pentris.app/::1670300327
-::res://builds/Pentris.app/Contents/::1670300328
-::res://builds/Pentris.app/Contents/Frameworks/::1670300327
-::res://builds/Pentris.app/Contents/MacOS/::1670300329
-::res://builds/Pentris.app/Contents/Resources/::1670300328
-::res://builds/Pentris.app/Contents/Resources/GodotSharp/::1670300328
-::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/::1670300328
-::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/::1670300328
-::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/mono/::1670300328
-browscap.ini::TextFile::-1::1670300328::0::1::::<><>::
-::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/mono/2.0/::1670300328
-::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/mono/2.0/Browsers/::1670300328
-::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/mono/4.0/::1670300328
-::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/mono/4.0/Browsers/::1670300328
-::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/mono/4.5/::1670300328
-::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/mono/4.5/Browsers/::1670300328
-::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/lib/::1670300328
-::res://builds/Pentris.app/Contents/_CodeSignature/::1670300328
-::res://pentaminos/::1682565900
-pentamino1.tscn::PackedScene::233050933174092606::1682565826::0::1::::<><>::res://scenes/block.tscn<>res://scripts/pentamino.gd
-pentamino2.tscn::PackedScene::-1::1682564933::0::1::::<><>::res://scenes/block.tscn<>res://scripts/pentamino.gd<>res://bloucks/burgundy.png
-pentamino3.tscn::PackedScene::-1::1682564933::0::1::::<><>::res://scenes/block.tscn<>res://scripts/pentamino.gd<>res://bloucks/navy.png
-pentamino4.tscn::PackedScene::3864672846596083346::1682565834::0::1::::<><>::res://scripts/pentamino.gd<>res://scenes/block.tscn<>uid://cepwxaaikyabh
-pentamino5.tscn::PackedScene::9060416775652930798::1682565836::0::1::::<><>::res://scripts/pentamino.gd<>res://scenes/block.tscn<>uid://76vu63bw87ag
-pentamino6.tscn::PackedScene::-1::1682564933::0::1::::<><>::res://scripts/pentamino.gd<>res://bloucks/lite blue.png<>res://scenes/block.tscn
-pentamino7.tscn::PackedScene::-1::1682564933::0::1::::<><>::res://scripts/pentamino.gd<>res://scenes/block.tscn<>res://bloucks/lavender.png
-pentamino8.tscn::PackedScene::-1::1682564933::0::1::::<><>::res://scenes/block.tscn<>res://bloucks/blu2.png<>res://scripts/pentamino.gd
-pentamino9.tscn::PackedScene::701260037838755163::1682565325::0::1::::<><>::res://scripts/pentamino.gd<>res://scenes/block.tscn<>uid://rn7b6doy76ak
-pentamino10.tscn::PackedScene::-1::1682564933::0::1::::<><>::res://scenes/block.tscn<>res://scripts/pentamino.gd<>res://bloucks/yellow.png
-pentamino11.tscn::PackedScene::-1::1682564933::0::1::::<><>::res://scenes/block.tscn<>res://scripts/pentamino.gd<>res://bloucks/snow white.png
-pentamino12.tscn::PackedScene::-1::1682564933::0::1::::<><>::res://scripts/pentamino.gd<>res://scenes/block.tscn<>res://bloucks/lime green.png
-pentamino13.tscn::PackedScene::-1::1682564933::0::1::::<><>::res://scenes/block.tscn<>res://bloucks/pink.png<>res://scripts/pentamino.gd
-pentamino14.tscn::PackedScene::-1::1682564933::0::1::::<><>::res://scripts/pentamino.gd<>res://scenes/block.tscn<>res://bloucks/karen white.png
-pentamino15.tscn::PackedScene::-1::1682564933::0::1::::<><>::res://scripts/pentamino.gd<>res://bloucks/fugly brown.png<>res://scenes/block.tscn
-pentamino16.tscn::PackedScene::-1::1682564933::0::1::::<><>::res://scripts/pentamino.gd<>res://bloucks/pink2.png<>res://scenes/block.tscn
-pentamino17.tscn::PackedScene::-1::1682564933::0::1::::<><>::res://scripts/pentamino.gd<>res://scenes/block.tscn<>res://bloucks/medium green.png
-pentamino18.tscn::PackedScene::5236732085721891710::1682565900::0::1::::<><>::uid://drooq6y13vglh<>res://scripts/pentamino.gd<>res://scenes/block.tscn
-::res://pentris/::1670269066
-::res://pentris docs/::1682564985
-black.png::CompressedTexture2D::8978969145121343251::1669858516::1682564985::1::::<><>::
-documentation.md::TextFile::-1::1676481873::0::1::::<><>::
-game states.png::CompressedTexture2D::7737024634981700083::1670184935::1682564985::1::::<><>::
-pentamino states.png::CompressedTexture2D::1063622501771342003::1670184514::1682564985::1::::<><>::
-::res://scenes/::1683157291
-block.tscn::PackedScene::8305634196094078917::1683157291::0::1::::<><>::uid://ca67l1rhxlol8<>res://scripts/block.gd
-ceil.tscn::PackedScene::-1::1682564933::0::1::::<><>::
-floor.tscn::PackedScene::1609130159327658592::1682565761::0::1::::<><>::
-holding.png::CompressedTexture2D::639305946343776726::1669429738::1682564985::1::::<><>::
-root.tscn::PackedScene::4159608329847945769::1683157291::0::1::::<><>::uid://w6qeyiuux21i<>uid://6nx456pb5b6l<>res://scripts/game_script.gd<>res://scripts/spawner.gd<>uid://du8epgbnqyxbk<>res://scripts/playspace.gd<>uid://b468fcd7ie6bx
-text.png::CompressedTexture2D::3562958828940963429::1669430212::1682564985::1::::<><>::
-wall.tscn::PackedScene::2204140966712141901::1683157291::0::1::::<><>::
-::res://scripts/::1682567642
-block.gd::GDScript::-1::1682567642::0::1::::<>CharacterBody2D<>::
-game_script.gd::GDScript::-1::1682567622::0::1::::<>Node2D<>::
-pentamino.gd::GDScript::-1::1682566828::0::1::::<>CharacterBody2D<>::
-playspace.gd::GDScript::-1::1682564933::0::1::::<>Node2D<>::
-spawner.gd::GDScript::-1::1682567464::0::1::::<>Node<>::
+::res://::1692078976
+bg.png::CompressedTexture2D::7732153870768049217::1687380922::1687380922::1::::<><>::
+default_env.tres::Environment::3974447318307321955::1692070135::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1687381282::0::1::::<><>::
+mono_crash.0.0.json::JSON::-1::1687380923::0::1::::<><>::
+zekton rg.ttf::FontFile::3178039247292006148::1692068573::1692068660::1::::<><>::
+::res://audio/::1687380922
+impact1.ogg::AudioStreamOggVorbis::8631433361901479848::1687380922::1687380922::1::::<><>::
+line complete.ogg::AudioStreamOggVorbis::3166570940304006780::1687380922::1687380922::1::::<><>::
+quick drop.ogg::AudioStreamOggVorbis::4487905560448641941::1687380922::1687380922::1::::<><>::
+::res://backgrounds/::1687380922
+bg.png::CompressedTexture2D::2460157787812230866::1687380922::1687380922::1::::<><>::
+black.png::CompressedTexture2D::7488587511324195975::1687380922::1687380922::1::::<><>::
+holding.png::CompressedTexture2D::7282095510005944914::1687380922::1687380922::1::::<><>::
+::res://bloucks/::1687380922
+blak.png::CompressedTexture2D::4838801057481547319::1687380922::1687380922::1::::<><>::
+blu2.png::CompressedTexture2D::1499993201723939689::1687380922::1687380922::1::::<><>::
+burgundy.png::CompressedTexture2D::526201001285041085::1687380922::1687380922::1::::<><>::
+fugly brown.png::CompressedTexture2D::5190440306692401827::1687380922::1687380922::1::::<><>::
+karen white.png::CompressedTexture2D::6149434861324609149::1687380922::1687380922::1::::<><>::
+lavender.png::CompressedTexture2D::9139578262362231805::1687380922::1687380922::1::::<><>::
+lime green.png::CompressedTexture2D::3633037371286845238::1687380922::1687380922::1::::<><>::
+lite blue.png::CompressedTexture2D::9052433259606091753::1687380922::1687380922::1::::<><>::
+medium green.png::CompressedTexture2D::8919477042490033698::1687380922::1687380922::1::::<><>::
+navy.png::CompressedTexture2D::4153148728341247033::1687380922::1687380922::1::::<><>::
+oinge.png::CompressedTexture2D::5085939255727693193::1687380922::1687380922::1::::<><>::
+pink2.png::CompressedTexture2D::2550974059607750275::1687380922::1687380922::1::::<><>::
+pink.png::CompressedTexture2D::5547307676514765448::1687380922::1687380922::1::::<><>::
+plum.png::CompressedTexture2D::1221993615739488646::1687380922::1687380922::1::::<><>::
+pnurple.png::CompressedTexture2D::8382253958602630973::1687380922::1687380922::1::::<><>::
+red.png::CompressedTexture2D::2311351151073629966::1687380922::1687380922::1::::<><>::
+snow white.png::CompressedTexture2D::4456188512972515328::1687380922::1687380922::1::::<><>::
+yellow.png::CompressedTexture2D::6338422619746780811::1687380922::1687380922::1::::<><>::
+::res://builds/::1687380923
+::res://builds/Pentris.app/::1687380922
+::res://builds/Pentris.app/Contents/::1687380923
+::res://builds/Pentris.app/Contents/MacOS/::1687380923
+::res://builds/Pentris.app/Contents/Resources/::1687380923
+::res://builds/Pentris.app/Contents/Resources/GodotSharp/::1687380923
+::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/::1687380923
+::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/::1687380923
+::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/mono/::1687380923
+browscap.ini::TextFile::-1::1687380923::0::1::::<><>::
+::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/mono/2.0/::1687380923
+::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/mono/2.0/Browsers/::1687380923
+::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/mono/4.0/::1687380923
+::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/mono/4.0/Browsers/::1687380923
+::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/mono/4.5/::1687380923
+::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/etc/mono/4.5/Browsers/::1687380923
+::res://builds/Pentris.app/Contents/Resources/GodotSharp/Mono/lib/::1687380923
+::res://builds/Pentris.app/Contents/_CodeSignature/::1687380923
+::res://pentaminos/::1687380923
+pentamino1.tscn::PackedScene::233050933174092606::1687380923::0::1::::<><>::res://scenes/block.tscn<>res://scripts/pentamino.gd
+pentamino2.tscn::PackedScene::-1::1687380923::0::1::::<><>::res://scenes/block.tscn<>res://scripts/pentamino.gd<>res://bloucks/burgundy.png
+pentamino3.tscn::PackedScene::-1::1687380923::0::1::::<><>::res://scenes/block.tscn<>res://scripts/pentamino.gd<>res://bloucks/navy.png
+pentamino4.tscn::PackedScene::3864672846596083346::1687380923::0::1::::<><>::res://scripts/pentamino.gd<>res://scenes/block.tscn<>uid://cepwxaaikyabh
+pentamino5.tscn::PackedScene::9060416775652930798::1687380923::0::1::::<><>::res://scripts/pentamino.gd<>res://scenes/block.tscn<>uid://76vu63bw87ag
+pentamino6.tscn::PackedScene::-1::1687380923::0::1::::<><>::res://scripts/pentamino.gd<>res://bloucks/lite blue.png<>res://scenes/block.tscn
+pentamino7.tscn::PackedScene::-1::1687380923::0::1::::<><>::res://scripts/pentamino.gd<>res://scenes/block.tscn<>res://bloucks/lavender.png
+pentamino8.tscn::PackedScene::-1::1687380923::0::1::::<><>::res://scenes/block.tscn<>res://bloucks/blu2.png<>res://scripts/pentamino.gd
+pentamino9.tscn::PackedScene::701260037838755163::1687380923::0::1::::<><>::res://scripts/pentamino.gd<>res://scenes/block.tscn<>uid://rn7b6doy76ak
+pentamino10.tscn::PackedScene::-1::1687380923::0::1::::<><>::res://scenes/block.tscn<>res://scripts/pentamino.gd<>res://bloucks/yellow.png
+pentamino11.tscn::PackedScene::-1::1687380923::0::1::::<><>::res://scenes/block.tscn<>res://scripts/pentamino.gd<>res://bloucks/snow white.png
+pentamino12.tscn::PackedScene::-1::1687380923::0::1::::<><>::res://scripts/pentamino.gd<>res://scenes/block.tscn<>res://bloucks/lime green.png
+pentamino13.tscn::PackedScene::-1::1687380923::0::1::::<><>::res://scenes/block.tscn<>res://bloucks/pink.png<>res://scripts/pentamino.gd
+pentamino14.tscn::PackedScene::-1::1687380923::0::1::::<><>::res://scripts/pentamino.gd<>res://scenes/block.tscn<>res://bloucks/karen white.png
+pentamino15.tscn::PackedScene::-1::1687380923::0::1::::<><>::res://scripts/pentamino.gd<>res://bloucks/fugly brown.png<>res://scenes/block.tscn
+pentamino16.tscn::PackedScene::-1::1687380923::0::1::::<><>::res://scripts/pentamino.gd<>res://bloucks/pink2.png<>res://scenes/block.tscn
+pentamino17.tscn::PackedScene::-1::1687380923::0::1::::<><>::res://scripts/pentamino.gd<>res://scenes/block.tscn<>res://bloucks/medium green.png
+pentamino18.tscn::PackedScene::5236732085721891710::1687380923::0::1::::<><>::uid://drooq6y13vglh<>res://scripts/pentamino.gd<>res://scenes/block.tscn
+::res://pentris docs/::1687380923
+black.png::CompressedTexture2D::8978969145121343251::1687380923::1687380923::1::::<><>::
+documentation.md::TextFile::-1::1687380923::0::1::::<><>::
+game states.png::CompressedTexture2D::7737024634981700083::1687380923::1687380923::1::::<><>::
+pentamino states.png::CompressedTexture2D::1063622501771342003::1687380923::1687380923::1::::<><>::
+::res://scenes/::1692070135
+block.tscn::PackedScene::8305634196094078917::1687380923::0::1::::<><>::uid://ca67l1rhxlol8<>res://scripts/block.gd
+ceil.tscn::PackedScene::-1::1687380923::0::1::::<><>::
+floor.tscn::PackedScene::1609130159327658592::1687380923::0::1::::<><>::
+holding.png::CompressedTexture2D::639305946343776726::1687380923::1687380923::1::::<><>::
+root.tscn::PackedScene::4159608329847945769::1692070135::0::1::::<><>::uid://w6qeyiuux21i<>uid://6nx456pb5b6l<>res://scripts/game_script.gd<>res://scripts/spawner.gd<>uid://dexr7bg3cjgah<>uid://du8epgbnqyxbk<>res://scripts/playspace.gd<>uid://bljp3vplihb2s<>res://scenes/score.gd<>uid://b468fcd7ie6bx
+score.gd::GDScript::-1::1692069925::0::1::::<>LineEdit<>::
+text.png::CompressedTexture2D::3562958828940963429::1687380923::1687380923::1::::<><>::
+wall.tscn::PackedScene::2204140966712141901::1687380923::0::1::::<><>::
+::res://scripts/::1687380923
+block.gd::GDScript::-1::1687380923::0::1::::<>CharacterBody2D<>::
+game_script.gd::GDScript::-1::1687380923::0::1::::<>Node2D<>::
+pentamino.gd::GDScript::-1::1687380923::0::1::::<>CharacterBody2D<>::
+playspace.gd::GDScript::-1::1687380923::0::1::::<>Node2D<>::
+spawner.gd::GDScript::-1::1687380923::0::1::::<>Node<>::

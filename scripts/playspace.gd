@@ -1,13 +1,12 @@
 extends Node2D
 
-
+@onready var  score = get_node("../score")
 @onready var lineComplete = get_node("../audio/line")
 var array = [] 
 var linesCleared = 0
 func _ready():
 	for i in range(0, 16): 
 		array.append(0)
-		
 	print(array.size())
 
 func rstarry():
@@ -28,6 +27,7 @@ func checkLines():
 		lineComplete.play()
 	deleteLines(lineArray)
 	linesCleared += lineArray.size()
+	score.setScore(linesCleared)
 func deleteLines(arry): 
 	var toDel = [] 
 	for i in get_child_count(): 
