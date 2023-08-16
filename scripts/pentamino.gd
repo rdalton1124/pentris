@@ -5,7 +5,9 @@ var x
 var y
 
 var fallSpeed
-
+var last_left = 0 
+var last_right = 0 
+var time_elapsed = 0
 var leftColl:bool = false
 var rightColl:bool = false
 
@@ -22,28 +24,18 @@ func _ready():
 	y = self.position.y
 	velocity = Vector2.ZERO
 	fallSpeed = 60
-
-func _physics_process(delta):
-	processInput()
-	if is_on_wall(): 
-		for i in range(get_slide_collision_count() - 1):
-			var name = get_slide_collision(i).get_collider().name
-			if(name == "wall_left" && !leftColl):
-				ac.bump()
-				hSnap()
-				leftColl = true 
-			elif(name == "wall_right" && !rightColl): 
-				ac.bump()
-				hSnap()
-				rightColl = true
-
-	self.rotation_degrees = angle
-	
-	oldY = round(self.position.y)
 	set_up_direction(Vector2.UP)
 	set_floor_stop_on_slope_enabled(false)
 	set_max_slides(20)
 	set_floor_max_angle(deg_to_rad(30))
+	
+func _physics_process(delta):
+	processInput(delta)
+	setColls() 
+	self.rotation_degrees = angle
+	
+	oldY = round(self.position.y)
+
 	move_and_slide()
 	
 	y = round(self.position.y)
@@ -51,7 +43,11 @@ func _physics_process(delta):
 	#if Y has moved up somehow, snap it back down. 
 	#remove control when block hits bottom. 
 	if is_on_floor():
-		lock()
+		setColls() 
+		velocity.y = 0 
+		processInput(delta)
+		move_and_slide()
+		lock() 	
 	elif round(oldY) >= round(y): 
 		downSnap()
 		stuckCount += 1
@@ -59,6 +55,35 @@ func _physics_process(delta):
 			lock()
 	else:
 		stuckCount = 0
+	time_elapsed += delta 
+#allows player to input a last move before 
+# piece is locked in
+func lastMove(delta):
+	if(Input.is_action_pressed("move_left") and not leftColl):
+		velocity.x = - 32 / delta
+	elif(Input.is_action_pressed("move_right") and not rightColl):
+		velocity.x = 32 / delta 
+	move_and_slide() 
+#Sets variables which tell whether 
+# you are collisding with left and right walls
+func setColls(): 
+	if is_on_wall(): 
+		for i in range(get_slide_collision_count() - 1):
+			var name = get_slide_collision(i).get_collider().name
+			if(name == "wall_left" && !leftColl):
+				ac.bump()
+				hSnap() 
+				leftColl = true 
+				rightColl = false
+			elif(name == "wall_right" && !rightColl): 
+				ac.bump()
+				hSnap()
+				rightColl = true
+				leftColl = false
+			else: 
+				rightColl = false
+				leftColl = false
+
 
 func speed_up(): 
 	fallSpeed += 5
@@ -93,11 +118,7 @@ func downSnap():
 
 #remove player control and spawn a new piece. 
 func lock(): 
-	vSnap()
-	self.position.x = round(self.position.x)
-	if(fmod(self.position.x, 32)):
-		print("Abnormal x posiion, x = " + str(self.position.x))
-		hSnap()
+	snap() 
 	if (self.position.y > 10):
 		find_parent("spawn").spawn() # spawn new piece 
 	#printStatus()
@@ -115,18 +136,21 @@ func lock():
 	playfield.checkLines()
 	self.queue_free()
 
-func processInput():
+func processInput(delta):
 	velocity.x = 0
 	if(Input.is_action_just_pressed("cc_rotate")):
 		angle += 90
-	if(Input.is_action_just_pressed("ccw_rotate")):
+	elif(Input.is_action_just_pressed("ccw_rotate")):
 		angle -= 90
-	if(Input.is_action_just_pressed("move_left") && !leftColl):
-		velocity.x = -32 * 60
-		rightColl = false
-	if(Input.is_action_just_pressed("move_right") && !rightColl):
-		velocity.x = 32 * 60
-		leftColl = false
+	if(Input.is_action_pressed("move_left", false) && !leftColl):
+		if time_elapsed - last_left > .25 or Input.is_action_just_pressed("move_left"): 
+			velocity.x = -32 / delta
+			last_left = time_elapsed 
+	elif(Input.is_action_pressed("move_right", false) && !rightColl):
+		if time_elapsed - last_right > .25 or Input.is_action_just_pressed("move_right"): 
+			velocity.x = 32 /delta 
+			last_right = time_elapsed 
+		#await(get_tree().create_timer(1).timeout)
 	if(Input.is_action_just_pressed("quick_drop")):
 		velocity.y = fallSpeed * 1000
 		ac.qd() 
@@ -135,14 +159,4 @@ func processInput():
 	else:
 		velocity.y = fallSpeed
 
-func printStatus():
-	print("x = "  + str(self.position.x))
-	print("y = " + str(self.position.y))
-	print("rotation ~" + str(self.rotation_degrees))
-	print("hitting a floor?" + str(is_on_floor()))
-	print("hitting a wall? " + str(is_on_wall()))
-	for i in get_slide_collision_count(): 
-		print("collision: " + get_slide_collision(i).collider.name)
-		print("collision angle " + str(get_slide_collision(i).get_angle()))
-	print("")
-	
+
