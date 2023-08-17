@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b0i7e2sgnmr1b"]
+[gd_scene load_steps=21 format=3 uid="uid://x1tvfg3iug6g"]
 
 [ext_resource type="PackedScene" uid="uid://w6qeyiuux21i" path="res://scenes/floor.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://6nx456pb5b6l" path="res://scenes/wall.tscn" id="2"]
@@ -8,21 +8,19 @@
 [ext_resource type="AudioStream" uid="uid://du8epgbnqyxbk" path="res://audio/impact1.ogg" id="8"]
 [ext_resource type="Script" path="res://scripts/playspace.gd" id="9"]
 [ext_resource type="AudioStream" uid="uid://b8u0slkctbqcp" path="res://audio/Korobeiniki.ogg" id="9_q0dnj"]
-[ext_resource type="FontFile" uid="uid://bljp3vplihb2s" path="res://zekton rg.ttf" id="9_vl4v1"]
-[ext_resource type="Script" path="res://scenes/score.gd" id="9_xwpkg"]
 [ext_resource type="AudioStream" uid="uid://b468fcd7ie6bx" path="res://audio/quick drop.ogg" id="10"]
-[ext_resource type="Script" path="res://scenes/music.gd" id="11_uffoo"]
+[ext_resource type="FontFile" uid="uid://bljp3vplihb2s" path="res://fonts/zekton rg.ttf" id="10_6slmb"]
+[ext_resource type="Script" path="res://scripts/score.gd" id="11_2p4wp"]
+[ext_resource type="Script" path="res://scripts/music.gd" id="12_fmula"]
 [ext_resource type="Texture2D" uid="uid://d4k6dr7ky8arw" path="res://Icons/musicOff.png" id="12_ow5sp"]
 [ext_resource type="Texture2D" uid="uid://irsl8psaxf8" path="res://Icons/musicOn.png" id="13_lqe5r"]
 [ext_resource type="Texture2D" uid="uid://dc0i3kqwtlfe6" path="res://Icons/audioOff.png" id="14_nmxgp"]
-[ext_resource type="Script" path="res://scenes/sound.gd" id="14_rfbo2"]
 [ext_resource type="Texture2D" uid="uid://be86vukai4hfk" path="res://Icons/audioOn.png" id="15_jnyp5"]
-[ext_resource type="Script" path="res://scenes/AudioController.gd" id="17_xhbwo"]
+[ext_resource type="Script" path="res://scripts/sound.gd" id="15_teqj7"]
+[ext_resource type="Script" path="res://scripts/AudioController.gd" id="18_old84"]
+[ext_resource type="Script" path="res://scripts/high_score.gd" id="19_p53sv"]
 
 [sub_resource type="AudioStreamOggVorbis" id="1"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4go7"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="root" type="Node2D"]
 script = ExtResource("3")
@@ -123,15 +121,14 @@ theme_override_colors/font_uneditable_color = Color(0, 1, 0, 0.505882)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/selection_color = Color(0, 0.890196, 0, 1)
 theme_override_constants/caret_width = 0
-theme_override_fonts/font = ExtResource("9_vl4v1")
+theme_override_fonts/font = ExtResource("10_6slmb")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_u4go7")
 alignment = 1
 max_length = 10
 editable = false
 expand_to_text_length = true
 language = "en"
-script = ExtResource("9_xwpkg")
+script = ExtResource("11_2p4wp")
 
 [node name="music" type="Button" parent="."]
 offset_left = 828.0
@@ -139,7 +136,7 @@ offset_top = 129.0
 offset_right = 865.0
 offset_bottom = 168.0
 toggle_mode = true
-script = ExtResource("11_uffoo")
+script = ExtResource("12_fmula")
 
 [node name="musicOff" type="Sprite2D" parent="music"]
 position = Vector2(18, 18)
@@ -155,7 +152,7 @@ offset_top = 136.0
 offset_right = 968.0
 offset_bottom = 172.0
 action_mode = 0
-script = ExtResource("14_rfbo2")
+script = ExtResource("15_teqj7")
 
 [node name="audioOff" type="Sprite2D" parent="sound"]
 position = Vector2(18, 18)
@@ -166,4 +163,16 @@ position = Vector2(18, 18)
 texture = ExtResource("15_jnyp5")
 
 [node name="AudioController" type="Node2D" parent="."]
-script = ExtResource("17_xhbwo")
+script = ExtResource("18_old84")
+
+[node name="high_score" type="LineEdit" parent="."]
+offset_left = 803.0
+offset_top = 194.0
+offset_right = 983.0
+offset_bottom = 272.0
+theme_override_colors/font_uneditable_color = Color(0, 1, 0, 0.505882)
+theme_override_fonts/font = ExtResource("10_6slmb")
+theme_override_font_sizes/font_size = 30
+max_length = 15
+editable = false
+script = ExtResource("19_p53sv")

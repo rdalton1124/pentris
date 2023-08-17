@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://difrpd6msidl6"
-path="res://.godot/imported/bg.png-24bff804693ee063127ad100e04c5185.ctex"
+uid="uid://jdxjmrsau3ju"
+path="res://.godot/imported/holding.png-020998d71f2dd8846a16a14037a45289.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bg.png"
-dest_files=["res://.godot/imported/bg.png-24bff804693ee063127ad100e04c5185.ctex"]
+source_file="res://Icons/holding.png"
+dest_files=["res://.godot/imported/holding.png-020998d71f2dd8846a16a14037a45289.ctex"]
 
 [params]
 

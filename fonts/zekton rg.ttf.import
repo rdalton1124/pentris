@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bljp3vplihb2s"
-path="res://.godot/imported/zekton rg.ttf-2c5b979eb86694612ab5f71a7ce40df6.fontdata"
+path="res://.godot/imported/zekton rg.ttf-58892bfeccb5da75325dbae341935939.fontdata"
 
 [deps]
 
-source_file="res://zekton rg.ttf"
-dest_files=["res://.godot/imported/zekton rg.ttf-2c5b979eb86694612ab5f71a7ce40df6.fontdata"]
+source_file="res://fonts/zekton rg.ttf"
+dest_files=["res://.godot/imported/zekton rg.ttf-58892bfeccb5da75325dbae341935939.fontdata"]
 
 [params]
 
