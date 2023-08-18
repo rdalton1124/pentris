@@ -2,60 +2,64 @@ extends Node2D
 
 @onready var  score = get_node("../score")
 @onready var ac = get_node("../AudioController")
-var array = [] 
-var linesCleared = 0
-func _ready():
-	for i in range(0, 16): 
-		array.append(0)
-	print(array.size())
 
-func rstarry():
-	for i in range(0, 16): 
-		array[i] = 0
+const LINE_SIZE = 13
+const WELL_HEIGHT = 16
+
+var blocks_filled = []
+var lines_cleared = 0
+
+#crate empty array
+func _ready():
+	for i in range(0, WELL_HEIGHT): 
+		blocks_filled.append(0)
+func reset_arry():
+	for i in range(0, WELL_HEIGHT): 
+		blocks_filled[i] = 0
 
 func checkLines(): 
 	var lineArray = []
-	rstarry()
+	reset_arry()
 	for i in get_child_count(): 
 		var h = (get_child(i).position.y)
 		var index = h2in(h)
-		array[index] += 1
-		if(array[index] == 13): 
-			print("line made")
+		blocks_filled[index] += 1
+		if(blocks_filled[index] == LINE_SIZE): 
 			lineArray.append(index)
 	if lineArray.size(): 
 		ac.line() 
 	deleteLines(lineArray)
-	linesCleared += lineArray.size()
-	score.setScore(linesCleared)
-func deleteLines(arry): 
-	var toDel = [] 
+	lines_cleared += lineArray.size()
+	score.setScore(lines_cleared)
+func deleteLines(completed_lines): 
+	var toDel = [] #to be deleted 
+	#go through children. If
+	#their height is that of a complete
+	# linhe, delete them. 
 	for i in get_child_count(): 
-		for j in arry: 
+		for j in completed_lines: 
 			var h = get_child(i).position.y 
 			if (in2h(j) == h): 
 				toDel.append(i)
 	
-	if toDel.size() != arry.size() * 13: 
-		print("error in deletion array")
-		print("deletion array should contain " + str(arry.size() * 13))
-		print("actually contains  " + str(toDel.size()))
 
 	var s = toDel.size()
+	#dlete
 	for i in toDel:
 		get_child(i).queue_free()
 	
-	var idx = arry.size() - 1
+	var idx = completed_lines.size() - 1
 	if s:
 		while idx >= 0: 
 			for j in get_child_count():
-				if get_child(j).position.y <= in2h(arry[idx]):
+				if get_child(j).position.y <= in2h(completed_lines[idx]):
 					get_child(j).fall()
 			idx -= 1
+			
 
+#height to index function 
 func h2in(x):
 	return ((x - 28) / 32) - 1
+#index to height function 
 func in2h(x):
 	return (32 * (x + 1)) + 28
-func printStatus():
-	print (str(self.get_child_count()))

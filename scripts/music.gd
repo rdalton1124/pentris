@@ -5,8 +5,10 @@ extends Button
 @onready var ac = get_node("../AudioController")
 func _ready():
 	off.visible = false
-	
-func _toggled(button_pressed):
+func start_false(): 
+	off.visible = true
+	on.visible = false 
+func _pressed():
 	ac.toggleMusic()
 	on.visible = not on.visible
 	off.visible = not off.visible 	

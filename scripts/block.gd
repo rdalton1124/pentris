@@ -10,7 +10,7 @@ func _ready():
 	xOffset = self.position.x 
 	yOffset = self.position.y 
 	$CollisionPolygon2D.set_disabled(true)
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !landed: 
 		self.position.x = xOffset
 		self.position.y = yOffset

@@ -12,7 +12,7 @@ func increment():
 	score += 1
 	printText()
 	hi_score.new_score(score)
-	
+
 func setScore(nwScr):
 	if(nwScr > 0):
 		score = nwScr

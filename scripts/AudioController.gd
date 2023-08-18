@@ -12,6 +12,11 @@ func _ready():
 	musicOn = true
 	music.play()
 
+func get_sound(): 
+	return soundOn 
+func get_music(): 
+	return musicOn 
+
 func toggleSound():
 	soundOn = not soundOn
 func toggleMusic():
@@ -27,7 +32,7 @@ func line():
 func bump(): 
 	if soundOn:
 		bumpSound.play() 	
-func _process(delta):
+func _process(_delta):
 	if not musicOn: 
 		music.stop() 
 	elif musicOn and not music.is_playing():

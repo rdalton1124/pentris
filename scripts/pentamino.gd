@@ -69,13 +69,13 @@ func lastMove(delta):
 func setColls(): 
 	if is_on_wall(): 
 		for i in range(get_slide_collision_count() - 1):
-			var name = get_slide_collision(i).get_collider().name
-			if(name == "wall_left" && !leftColl):
+			var coll_name = get_slide_collision(i).get_collider().name
+			if(coll_name == "wall_left" && !leftColl):
 				ac.bump()
 				hSnap() 
 				leftColl = true 
 				rightColl = false
-			elif(name == "wall_right" && !rightColl): 
+			elif(coll_name == "wall_right" && !rightColl): 
 				ac.bump()
 				hSnap()
 				rightColl = true
