@@ -3,7 +3,7 @@ extends Node2D
 @onready var  score = get_node("../score")
 @onready var ac = get_node("../AudioController")
 
-const LINE_SIZE = 13
+const LINE_SIZE = 11
 const WELL_HEIGHT = 16
 
 var blocks_filled = []

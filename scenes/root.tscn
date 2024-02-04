@@ -32,11 +32,11 @@ position = Vector2(504, 576)
 scale = Vector2(1.45, 1)
 
 [node name="wall_right" parent="boundaries" instance=ExtResource("2")]
-position = Vector2(722, 352)
+position = Vector2(687, 352)
 scale = Vector2(1, 6)
 
 [node name="wall_left" parent="boundaries" instance=ExtResource("2")]
-position = Vector2(273, 352)
+position = Vector2(303, 352)
 scale = Vector2(0.9, 6)
 
 [node name="spawn" type="Node2D" parent="."]
